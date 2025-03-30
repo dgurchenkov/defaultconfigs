@@ -1,40 +1,50 @@
-[column]
-	ui = auto
 [branch]
 	sort = -committerdate
-[tag] 
-	sort = version:refname
-[init]
-	defaultBranch = main
+[column]
+	ui = auto
+[commit]
+	verbose = true
+[core]
+	fsmonitor = true
+	untrackedChange = true
 [diff]
 	algorithm = histogram
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
-[push]
-	default = simple
-	autoSetupRemote = true
-	followTags = true
-[fetch] 
+[fetch]
+	all = true
 	prune = true
 	pruneTags = true
-	all = true
-[help]	
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[help]
 	autocorrect = prompt
-[commit]
-	verbose = true
-[rerere]
-	enabled = true
-	autoupdate = true
-[rebase]
-	autoSquash = true
-	autoStash = true
-	updateRefs = true
-[core]
-	fsmonitor = true
-	untrackedChange = true
+[init]
+	defaultBranch = main
 [merge]
 	conflictstyle = zdiff3
 [pull]
 	rebase = true
+[push]
+	autoSetupRemote = true
+	default = simple
+	followTags = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[rerere]
+	autoupdate = true
+	enabled = true
+[submodule]
+	recurse = true
+[user]
+	name = Denis Gurchenkov
+	email = denis@modular.com
+[tag]
+	sort = version:refname
 
